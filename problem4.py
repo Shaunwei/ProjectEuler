@@ -22,7 +22,7 @@ def get_palindrom_number(digit):
         for y in xrange(smallest_num, largest_num):
             product = x * y
             if product > max_product:
-                if is_palindrom(product):
+                if is_palindrom2(product):
                     values = [x, y]
                     max_product = product
                 else:
@@ -41,6 +41,20 @@ def is_palindrom(num):
         if string[head] != string[tail]:
             return False
     return True
+
+def is_palindrom2(num):
+    string = str(num)
+    length = len(string)
+    head = 0
+    tail = length - 1
+    while head < tail:
+        if string[head] != string[tail]:
+            return False
+        else:
+            head += 1
+            tail -= 1
+    else:
+        return True
 
 if __name__=='__main__':
     print('test 2-digit number: 9009=91x99')
